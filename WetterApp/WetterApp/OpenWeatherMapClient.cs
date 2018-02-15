@@ -33,8 +33,8 @@ namespace WetterApp
                 responseFromServer = reader.ReadToEnd();
             }
             WetterBeschreibung beschreibung = new WetterBeschreibung();
-            beschreibung.setBeschreibung(parser.ParseBeschreibung(responseFromServer));
-            beschreibung.setTemperatur(parser.ParseTemperatur(responseFromServer));
+            beschreibung.SetBeschreibung(parser.ParseBeschreibung(responseFromServer));
+            beschreibung.SetTemperatur(parser.ParseTemperatur(responseFromServer));
             return beschreibung;
         }
     }

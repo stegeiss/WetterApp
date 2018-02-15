@@ -8,12 +8,12 @@ namespace WetterApp
     {
         private string beschreibung;
         private string temperatur;
-        public void setBeschreibung(string beschreibung)
+        public void SetBeschreibung(string beschreibung)
         {
             this.beschreibung = beschreibung; ;
         }
 
-        internal void setTemperatur(string temperatur)
+        internal void SetTemperatur(string temperatur)
         {
             this.temperatur = temperatur;
         }
