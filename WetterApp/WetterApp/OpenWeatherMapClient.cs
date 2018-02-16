@@ -24,17 +24,21 @@ namespace WetterApp
         {
             string openweatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + stadt + "&appid=" + weatherApiKey;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(openweatherURL);
+            WetterBeschreibung beschreibung = new WetterBeschreibung();
 
-            //try für fehler abfangen
-            using (WebResponse response = (HttpWebResponse)request.GetResponse())
+            try
             {
+                WebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);
                 responseFromServer = reader.ReadToEnd();
+                beschreibung.SetBeschreibung(parser.ParseBeschreibung(responseFromServer));
+                beschreibung.SetTemperatur(parser.ParseTemperatur(responseFromServer));
             }
-            WetterBeschreibung beschreibung = new WetterBeschreibung();
-            beschreibung.SetBeschreibung(parser.ParseBeschreibung(responseFromServer));
-            beschreibung.SetTemperatur(parser.ParseTemperatur(responseFromServer));
+            catch (Exception e)
+            {
+                beschreibung.SetFehler(e.Message);
+            }
             return beschreibung;
         }
     }
