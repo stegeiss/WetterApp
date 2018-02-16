@@ -6,6 +6,7 @@ namespace WetterApp
 {
     class WetterConsole
     {
+        private bool BenutzerWillBeenden = false;
         private OpenWeatherMapClient client;
 
         public WetterConsole(OpenWeatherMapClient client)
@@ -15,16 +16,24 @@ namespace WetterApp
 
         internal void start()
         {
-            //expextion
             string stadt = "";
-            while(!stadt.Equals("exit") || !stadt.Equals("e") || !stadt.Equals("quit") || !stadt.Equals("q"))
+            while (!BenutzerWillBeenden)
             {
+                //expextion
+
                 Console.WriteLine("Von welcher Stadt soll das Wetter angezeigt werden?");
                 stadt = Console.ReadLine();
-                zeigWetter(stadt);
+                if (stadt.Equals("exit") || stadt.Equals("e") || stadt.Equals("quit") || stadt.Equals("q"))
+                {
+                    BenutzerWillBeenden = true;
+                }
+                else
+                {
+                    zeigWetter(stadt);
+                }
             }
-            Console.WriteLine("huhu");
         }
+
 
         private void zeigWetter(string stadt)
         {
