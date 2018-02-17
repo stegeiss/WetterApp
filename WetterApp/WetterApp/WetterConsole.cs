@@ -17,7 +17,7 @@ namespace WetterApp
         {
             this.client = client;
             BenutzerWillBeenden = false;
-            StadteListeEinlesen();
+            //StadteListeEinlesen(); Wird noch bearbeitet: eventuell für Fehl eingabe überprüfen
         }
 
         internal void Start()

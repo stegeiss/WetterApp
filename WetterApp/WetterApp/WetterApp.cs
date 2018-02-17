@@ -1,16 +1,12 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Net;
-using WetterApp;
 
 namespace WetterApp
 {
     class WetterApp
     {
-        private static string openWeatherMapKey = "0c5f1d25e6b2bc4b09d7077b4a85fb47";
+        private static string openWeatherMapKey = "";
 
         static void Main(string[] args)
         {
